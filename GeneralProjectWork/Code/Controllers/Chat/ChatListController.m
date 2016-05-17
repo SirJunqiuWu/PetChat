@@ -42,7 +42,7 @@
 #pragma mark - Set Up UI
 
 - (void)setupUI {
-    infoTable = [[UITableView alloc]initWithFrame:AppFrame(0, 0, self.view.width, self.view.height) style:UITableViewStylePlain];
+    infoTable = [[UITableView alloc]initWithFrame:AppFrame(0, 0, self.view.width,AppScreenHeight-64-49) style:UITableViewStylePlain];
     infoTable.backgroundColor = [UIColor clearColor];
     infoTable.separatorColor = [UIColor clearColor];
     infoTable.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -90,7 +90,7 @@
                            @"name":@"多人会话-周末有空",
                            @"content":@"小伙伴们这个周日都有空吗?",
                            @"time":@"下午17:30"};
-    dataArray = [NSMutableArray arrayWithObjects:dic3,dic0,dic4,dic1,dic2,dic5,nil];
+    dataArray = [NSMutableArray arrayWithObjects:dic3,dic0,dic4,dic1,dic2,dic5,dic3,dic0,dic4,dic1,dic2,dic5,nil];
     [infoTable reloadData];
 }
 
@@ -210,6 +210,22 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return @"删除";
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        [dataArray removeObjectAtIndex:indexPath.row];
+        [infoTable deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
 }
 
 @end

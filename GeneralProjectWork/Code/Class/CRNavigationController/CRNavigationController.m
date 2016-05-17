@@ -43,7 +43,7 @@
     if(self) {
         self.viewControllers = @[rootViewController];
     }
-    [self.navigationBar setBackgroundImage:[CoreUtil getImageFromColor:[UIColor colorWithHexString:@"#000000" alpha:1.0]] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbarBg"] forBarMetrics:UIBarMetricsDefault];
     self.navigationBar.barTintColor = [UIColor whiteColor];
     self.navigationBar.tintColor = [UIColor whiteColor];
     [self.navigationBar setShadowImage:[[UIImage alloc] init]];//导航底部间隔线
@@ -52,7 +52,7 @@
     self.navigationBar.backgroundColor = [UIColor clearColor];
     
     NSDictionary *attributDic = @{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"#ffffff"],
-                                  NSFontAttributeName:FONT18
+                                  NSFontAttributeName:[UIFont boldSystemFontOfSize:16]
                                   };
     self.navigationBar.titleTextAttributes = attributDic;
     

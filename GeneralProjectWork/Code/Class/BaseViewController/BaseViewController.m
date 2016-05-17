@@ -19,7 +19,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithHexString:@"#f7f7f7"];
+    self.view.backgroundColor = [UIColor whiteColor];
+    UIImageView *bgV =[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"viewBg"]];
+    [bgV setFrame:CGRectMake(0,0, AppScreenWidth, AppScreenHeight)];
+    [self.view addSubview:bgV];
     [self openSwipBackGesture];
 }
 

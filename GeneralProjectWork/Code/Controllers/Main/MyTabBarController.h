@@ -10,10 +10,10 @@
 
 @interface MyTabBarController : UITabBarController
 
-@property(nonatomic,strong)DA01Controller *da01VC;
-@property(nonatomic,strong)DB01Controller *db01VC;
-@property(nonatomic,strong)DC01Controller *dc01VC;
-@property(nonatomic,strong)DD01Controller *dd01VC;
-@property(nonatomic,strong)DE01Controller *de01VC;
+@property(nonatomic,strong)NearController      *nearVC;
+@property(nonatomic,strong)ContactController   *contactVC;
+@property(nonatomic,strong)ChatListController  *chatListVC;
+@property(nonatomic,strong)DiscoveryController *discoveryVC;
+@property(nonatomic,strong)MyCenterController  *myCenterVC;
 
 @end

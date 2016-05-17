@@ -17,6 +17,14 @@
 
 @implementation GuideController
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
@@ -37,12 +45,13 @@
     baseSV = [[UIScrollView alloc] initWithFrame:AppFrame(0, 0, AppScreenWidth, AppScreenHeight)];
     baseSV.pagingEnabled = YES;
     baseSV.showsHorizontalScrollIndicator = NO;
+    baseSV.userInteractionEnabled = YES;
     [self.view addSubview:baseSV];
     
-    NSArray *welcomeImages = @[@"welcome_1",@"welcome_2",@"welcome_3",@"welcome_4",@"welcome_5"];
+    NSArray *welcomeImages = @[@"welcome_1",@"welcome_2",@"welcome_3",@"welcome_4"];
     int count = (int)welcomeImages.count;
     
-    CGSize size = CGSizeMake(AppScreenHeight * count,AppScreenHeight);
+    CGSize size = CGSizeMake(AppScreenWidth * count,AppScreenHeight);
     
     baseSV.contentSize = size;
     baseSV.bounces = NO;
@@ -57,6 +66,7 @@
         NSString *image = [NSString stringWithFormat:@"welcome_%d",i+1];
         imageView.backgroundColor = [UIColor clearColor];
         imageView.image = [UIImage imageNamed:image];
+        imageView.userInteractionEnabled = YES;
         [baseSV addSubview:imageView];
         
         if (i+1==count)
@@ -65,10 +75,10 @@
              *  立即体验按钮
              */
             UIButton *instanceBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-            instanceBtn.frame = CGRectMake(frame.origin.x+20,AppScreenHeight-150, frame.size.width-40,150);
-            instanceBtn.backgroundColor = [UIColor clearColor];
+            instanceBtn.frame = AppFrame((AppScreenWidth-177.0)/2, AppScreenHeight-70,177.0,35.5);
+            [instanceBtn setImage:[UIImage imageNamed:@"ad_start"] forState:UIControlStateNormal];
             [instanceBtn addTarget:self action:@selector(doPush) forControlEvents:UIControlEventTouchUpInside];
-            [baseSV addSubview:instanceBtn];
+            [imageView addSubview:instanceBtn];
         }
     }
 }

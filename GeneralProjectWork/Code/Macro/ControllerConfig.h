@@ -13,11 +13,12 @@
 #import "GuideController.h"
 #import "AdvertiseController.h"
 #import "LoginController.h"
-#import "DA01Controller.h"
-#import "DB01Controller.h"
-#import "DC01Controller.h"
-#import "DD01Controller.h"
-#import "DE01Controller.h"
+
+#import "NearController.h"
+#import "ContactController.h"
+#import "ChatListController.h"
+#import "DiscoveryController.h"
+#import "MyCenterController.h"
 
 
 #endif /* ControllerConfig_h */

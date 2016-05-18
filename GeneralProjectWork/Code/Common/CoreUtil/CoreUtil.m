@@ -428,4 +428,19 @@
     return titleView;
 }
 
++ (void)setView:(UIView *)view rectCorners:(UIRectCorner)rectCorner cornerRadiu:(float)cornerRadiu {
+    /*rectCorner
+     * UIRectCornerTopLeft
+     * UIRectCornerTopRight
+     * UIRectCornerBottomLeft
+     * UIRectCornerBottomRight
+     * UIRectCornerAllCorners
+     */
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:rectCorner cornerRadii:CGSizeMake(cornerRadiu, cornerRadiu)];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = view.bounds;
+    maskLayer.path = maskPath.CGPath;
+    view.layer.mask = maskLayer;
+}
+
 @end

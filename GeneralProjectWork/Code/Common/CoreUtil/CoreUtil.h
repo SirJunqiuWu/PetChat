@@ -213,4 +213,14 @@ typedef enum {
  */
 + (UIView *)createTitleViewWithTitle:(NSString *)title TitleColor:(UIColor *)color Font:(float)font;
 
+
+/**
+ *  对某个视图做相应边角处理
+ *
+ *  @param view        目标视图
+ *  @param rectCorner  需要做处理的边角，多个以UIRectCornerTopLeft | UIRectCornerBottomLeft形式
+ *  @param cornerRadiu 要画的弧度
+ */
++ (void)setView:(UIView *)view rectCorners:(UIRectCorner)rectCorner cornerRadiu:(float)cornerRadiu;
+
 @end
